@@ -1,0 +1,101 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Macro Commentary - Federal Reserve Week</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #111;
+      background-color: #fff;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .quote {
+      font-style: italic;
+      border-left: 3px solid #ccc;
+      padding-left: 12px;
+      margin: 18px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Il mercato entra nella settimana della Federal Reserve</h1>
+
+  <div class="section">
+    <p>
+      Il mercato entra nella settimana della Federal Reserve in una fase in cui le narrative di breve stanno mascherando un cambio più profondo del regime finanziario globale. L’S&P 500 resta su livelli elevati, in area 7.300–7.400 punti, il Nasdaq sopra quota 25.000 e il Dow Jones stabilmente oltre i 50.000, ma la traiettoria non è più guidata da un’espansione lineare degli utili o da un ciclo macro forte: è il risultato di una sovrapposizione di fattori eterogenei, dalla tenuta dell’intelligenza artificiale come tema dominante fino al repricing continuo delle aspettative sui tassi reali. In questo contesto, la geopolitica continua a produrre rumore di breve, ma ha perso centralità come driver strutturale dei prezzi.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      Il recente allentamento delle tensioni sul fronte mediorientale e le ipotesi di distensione tra Stati Uniti e Iran hanno generato una correzione significativa del petrolio, con il Brent che ha ritracciato dall’area high-80 dollari verso la parte bassa degli 80. Questo movimento ha avuto un impatto immediato sulle aspettative inflazionistiche e ha alimentato un breve episodio di risk-on, ma il mercato non sta prezzando un nuovo ciclo di crescita: sta semplicemente incorporando una riduzione temporanea della pressione energetica all’interno di un quadro macro che resta strutturalmente rigido.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      Il dato decisivo, in questo contesto, resta quello dell’inflazione core americana pubblicata nei giorni scorsi, ancora vischiosa soprattutto nella componente servizi. Questo elemento impedisce una vera riaccelerazione delle aspettative di taglio dei tassi e mantiene la Federal Reserve in una posizione complessa: non abbastanza restrittiva da comprimere violentemente la crescita, ma nemmeno sufficientemente accomodante da riattivare una normalizzazione del costo del capitale. È proprio su questa ambiguità che si innesta il vero evento della settimana.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      Il meeting della Federal Reserve tra il 16 e il 17 giugno non è più un appuntamento tattico, ma un momento di definizione del regime. Il mercato non sta più prezzando il livello assoluto dei tassi, ma la loro durata implicita su livelli reali positivi. Questo sposta completamente la natura della variabile rilevante: non conta più il picco, ma la persistenza del costo del capitale. Ed è questa persistenza che si riflette direttamente su tre canali fondamentali: compressione dei multipli equity, repricing del rischio di credito e ridefinizione della sostenibilità della leva nel private equity.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      Nel mondo del credito, infatti, la variabile non è più la direzione degli spread, ma la capacità di rifinanziamento in un contesto in cui il risk-free resta elevato più a lungo del previsto. Nei portafogli leveraged, questo si traduce in una pressione costante sugli interest coverage ratio e in una crescente selettività nelle operazioni di refinancing. Nel private equity, il tema è ancora più strutturale: i modelli costruiti in un’era di liquidità abbondante e tassi prossimi allo zero stanno entrando in collisione con un ambiente in cui la leva non è più una fonte di rendimento, ma un vincolo operativo.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      In parallelo, il mercato sta assistendo a un fenomeno sempre più rilevante di convergenza tra private e public valuation, reso evidente anche dal recente debutto di SpaceX sui mercati pubblici. La prima giornata di contrattazione, con una forte rivalutazione rispetto al prezzo di riferimento e una volatilità superiore alle attese, ha evidenziato come il confine tra capitale privato e pubblico sia sempre più sottile. Il private market non è più un’area pre-IPO isolata, ma un segmento che compete direttamente con la formazione dei prezzi nei mercati quotati, accelerando la trasmissione del sentiment e riducendo lo spazio di arbitraggio tradizionale tra late-stage private equity e public equity growth.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      Questa dinamica si inserisce in un contesto economico che rimane complessivamente fragile ma non recessivo: crescita debole, manifattura sotto pressione e servizi ancora resilienti. È un equilibrio che non consente né una riaccelerazione significativa degli utili né un’espansione dei multipli, e che quindi riporta il mercato verso una logica più difensiva, centrata sulla qualità dei flussi di cassa piuttosto che sulla crescita nominale.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      La coesistenza tra equity sui massimi relativi e asset difensivi come l’oro su livelli elevati continua a segnalare un mercato che non sta prezzando uno scenario di stabilità, ma uno scenario di incertezza prolungata sul costo del capitale. Non è euforia, è copertura. Non è fiducia nella crescita, è adattamento a un regime in cui il denaro è tornato a essere una variabile strutturale e non ciclica.
+    </p>
+  </div>
+
+  <div class="section">
+    <p>
+      In questo quadro, la Federal Reserve non rappresenta semplicemente un evento macro, ma un momento di verifica della sostenibilità dell’intero impianto finanziario globale. La vera domanda non riguarda la direzione dei tassi, ma per quanto tempo il sistema economico e finanziario possa assorbire un costo del capitale che resta persistentemente più alto rispetto all’ultimo ciclo senza generare una frattura nei modelli di leva, nelle valutazioni e nelle strutture di investimento che hanno dominato l’era precedente.
+    </p>
+  </div>
+
+</body>
+</html>
