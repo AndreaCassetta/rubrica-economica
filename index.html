@@ -107,14 +107,10 @@
       </div>
 
 <!-- SEZIONE LIKE E CONTATORI -->
-      <div class="interaction-box">
-        <div class="like-stats">
-          ❤️ Piace a <span id="like-count">34</span> persone 
-          <span class="like-list">(tra cui <span id="names-list">Marco R. (Head of IB), Elena V. (Head of Investments), Thomas B.</span>)</span>
-        </div>
-        
-        <button id="btn-like" onclick="toggleLike()">👍 Mi piace</button>
-        <button id="btn-dislike" onclick="toggleDislike()">👎 Non mi piace (<span id="dislike-count">1</span>)</button>
+<div class="interaction-bar">
+        <button id="likeBtn" onclick="toggleLike()">👍 Mi piace</button>
+        <button id="dislikeBtn" onclick="triggerDislike()">👎 Non mi piace</button>
+        <span class="like-counter" id="likeCounter" onclick="openModal()">3 Like</span>
       </div>
 
       <h4>Commenti</h4>
@@ -155,59 +151,99 @@
 
   </section>
 
-<!-- LOGICA INTERATTIVA (JAVASCRIPT) -->
+<!-- =============================== -->
+  <!-- FINESTRA MODALE (CHI HA MESSO LIKE) -->
+  <!-- =============================== -->
+  <div id="likeModal" class="modal" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Reazioni al post</h4>
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+      </div>
+      <ul class="like-user-list" id="usersList">
+        <!-- Lista popolata da JavaScript -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== -->
+  <!-- JAVASCRIPT LOGIC      -->
+  <!-- ===================== -->
   <script>
-    let hasLiked = false;
-    let likeCount = 34;
-    let dislikeCount = 1;
-    let hasDisliked = false;
+    // Database finto iniziale dei Like (Head of Investment target)
+    let staticLikes = [
+      { name: "Marco Rossi", role: "Head of Investment Banking @ Mediobanca" },
+      { name: "Elena Bianchi", role: "Head of Investments @ Clessidra Private Equity" },
+      { name: "Fabrizio Serri", role: "Managing Director @ Goldman Sachs Milan" }
+    ];
 
-    // Lista iniziale di chi ha messo like
-    const baseNames = "Marco R. (Head of IB), Elena V. (Head of Investments), Thomas B.";
+    let userHasLiked = false;
 
+    // Funzione per aggiornare la vista del counter
+    function updateCounter() {
+      let totalLikes = staticLikes.length + (userHasLiked ? 1 : 0);
+      document.getElementById('likeCounter').innerText = totalLikes + " Like";
+    }
+
+    // Al click di "Mi piace"
     function toggleLike() {
-      const likeBtn = document.getElementById('btn-like');
-      const countSpan = document.getElementById('like-count');
-      const namesSpan = document.getElementById('names-list');
-
-      if (!hasLiked) {
-        // Se l'utente non ha ancora messo like
-        hasLiked = true;
-        likeCount++;
-        likeBtn.classList.add('liked');
-        likeBtn.innerText = "👍 Ti piace";
-        
-        // Aggiunge "Tu, " in cima alla lista di chi ha messo like
-        namesSpan.innerText = `Tu, ${baseNames}`;
-        
-        // Se era attivo il dislike, lo toglie
-        if (hasDisliked) toggleDislike();
+      const btn = document.getElementById('likeBtn');
+      userHasLiked = !userHasLiked;
+      
+      if (userHasLiked) {
+        btn.classList.add('liked');
       } else {
-        // Se l'utente toglie il like
-        hasLiked = false;
-        likeCount--;
-        likeBtn.classList.remove('liked');
-        likeBtn.innerText = "👍 Mi piace";
-        namesSpan.innerText = baseNames;
+        btn.classList.remove('liked');
       }
-      countSpan.innerText = likeCount;
+      updateCounter();
     }
 
-    function toggleDislike() {
-      const dislikeBtn = document.getElementById('btn-dislike');
-      const dislikeSpan = document.getElementById('dislike-count');
-
-      if (!hasDisliked) {
-        hasDisliked = true;
-        dislikeCount++;
-        // Se era attivo il like, lo toglie per evitare il doppio voto
-        if (hasLiked) toggleLike();
-      } else {
-        hasDisliked = false;
-        dislikeCount--;
+    // Al click di "Non mi piace" toglie il like se inserito
+    function triggerDislike() {
+      if (userHasLiked) {
+        userHasLiked = false;
+        document.getElementById('likeBtn').classList.remove('liked');
+        updateCounter();
       }
-      dislikeSpan.innerText = dislikeCount;
     }
+
+    // Apre il pop-up e genera la lista delle persone
+    function openModal() {
+      const modal = document.getElementById('likeModal');
+      const listContainer = document.getElementById('usersList');
+      listContainer.innerHTML = ''; // svuota
+
+      // Se l'utente ha messo like, si mostra in cima alla lista
+      if (userHasLiked) {
+        const li = document.createElement('li');
+        li.innerHTML = '<span class="name">Tu (Andrea)</span><span class="role">Giornalista / Autore Rubrica Economica</span>';
+        listContainer.appendChild(li);
+      }
+
+      // Aggiunge gli altri utenti finanziari stabili
+      staticLikes.forEach(user => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="name">${user.name}</span><span class="role">${user.role}</span>`;
+        listContainer.appendChild(li);
+      });
+
+      modal.style.display = 'flex';
+    }
+
+    // Chiude il pop-up
+    function closeModal() {
+      document.getElementById('likeModal').style.display = 'none';
+    }
+
+    // Chiude cliccando fuori dalla finestrella bianca
+    function closeModalOutside(event) {
+      if (event.target.id === 'likeModal') {
+        closeModal();
+      }
+    }
+
+    // Inizializzazione counter alla partenza
+    updateCounter();
   </script>
 
 </body>
