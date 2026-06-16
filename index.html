@@ -99,13 +99,6 @@
   In questo quadro, la Federal Reserve non rappresenta semplicemente un evento macro, ma un momento di verifica della sostenibilità dell’intero impianto finanziario globale. La vera domanda non riguarda la direzione dei tassi, ma per quanto tempo il sistema economico e finanziario possa assorbire un costo del capitale che resta persistentemente più alto rispetto all’ultimo ciclo senza generare una frattura nei modelli di leva, nelle valutazioni e nelle strutture di investimento che hanno dominato l’era precedente.
       </p>
 
-<!-- Pulsanti di interazione e contatore -->
-      <div class="actions-bar">
-        <button id="likeBtn">👍 Mi piace</button>
-        <button>👎 Non mi piace</button>
-        <span class="like-count" id="likeCounter">A 4 persone piace questo articolo</span>
-      </div>
-
 <!-- SEZIONE LIKE E CONTATORI -->
 <div class="interaction-bar">
         <button id="likeBtn" onclick="toggleLike()">👍 Mi piace</button>
@@ -166,5 +159,85 @@
     </div>
   </div>
 
- </body>
+  <!-- ===================== -->
+  <!-- JAVASCRIPT LOGIC      -->
+  <!-- ===================== -->
+  <script>
+    // Database finto iniziale dei Like (Head of Investment target)
+    let staticLikes = [
+      { name: "Marco Rossi", role: "Head of Investment Banking @ Mediobanca" },
+      { name: "Elena Bianchi", role: "Head of Investments @ Clessidra Private Equity" },
+      { name: "Fabrizio Serri", role: "Managing Director @ Goldman Sachs Milan" }
+    ];
+
+    let userHasLiked = false;
+
+    // Funzione per aggiornare la vista del counter
+    function updateCounter() {
+      let totalLikes = staticLikes.length + (userHasLiked ? 1 : 0);
+      document.getElementById('likeCounter').innerText = totalLikes + " Like";
+    }
+
+    // Al click di "Mi piace"
+    function toggleLike() {
+      const btn = document.getElementById('likeBtn');
+      userHasLiked = !userHasLiked;
+      
+      if (userHasLiked) {
+        btn.classList.add('liked');
+      } else {
+        btn.classList.remove('liked');
+      }
+      updateCounter();
+    }
+
+    // Al click di "Non mi piace" toglie il like se inserito
+    function triggerDislike() {
+      if (userHasLiked) {
+        userHasLiked = false;
+        document.getElementById('likeBtn').classList.remove('liked');
+        updateCounter();
+      }
+    }
+
+    // Apre il pop-up e genera la lista delle persone
+    function openModal() {
+      const modal = document.getElementById('likeModal');
+      const listContainer = document.getElementById('usersList');
+      listContainer.innerHTML = ''; // svuota
+
+      // Se l'utente ha messo like, si mostra in cima alla lista
+      if (userHasLiked) {
+        const li = document.createElement('li');
+        li.innerHTML = '<span class="name">Tu (Andrea)</span><span class="role">Giornalista / Autore Rubrica Economica</span>';
+        listContainer.appendChild(li);
+      }
+
+      // Aggiunge gli altri utenti finanziari stabili
+      staticLikes.forEach(user => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="name">${user.name}</span><span class="role">${user.role}</span>`;
+        listContainer.appendChild(li);
+      });
+
+      modal.style.display = 'flex';
+    }
+
+    // Chiude il pop-up
+    function closeModal() {
+      document.getElementById('likeModal').style.display = 'none';
+    }
+
+    // Chiude cliccando fuori dalla finestrella bianca
+    function closeModalOutside(event) {
+      if (event.target.id === 'likeModal') {
+        closeModal();
+      }
+    }
+
+    // Inizializzazione counter alla partenza
+    updateCounter();
+  </script>
+
+</body>
 </html>
