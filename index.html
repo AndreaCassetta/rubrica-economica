@@ -155,5 +155,60 @@
 
   </section>
 
+<!-- LOGICA INTERATTIVA (JAVASCRIPT) -->
+  <script>
+    let hasLiked = false;
+    let likeCount = 34;
+    let dislikeCount = 1;
+    let hasDisliked = false;
+
+    // Lista iniziale di chi ha messo like
+    const baseNames = "Marco R. (Head of IB), Elena V. (Head of Investments), Thomas B.";
+
+    function toggleLike() {
+      const likeBtn = document.getElementById('btn-like');
+      const countSpan = document.getElementById('like-count');
+      const namesSpan = document.getElementById('names-list');
+
+      if (!hasLiked) {
+        // Se l'utente non ha ancora messo like
+        hasLiked = true;
+        likeCount++;
+        likeBtn.classList.add('liked');
+        likeBtn.innerText = "👍 Ti piace";
+        
+        // Aggiunge "Tu, " in cima alla lista di chi ha messo like
+        namesSpan.innerText = `Tu, ${baseNames}`;
+        
+        // Se era attivo il dislike, lo toglie
+        if (hasDisliked) toggleDislike();
+      } else {
+        // Se l'utente toglie il like
+        hasLiked = false;
+        likeCount--;
+        likeBtn.classList.remove('liked');
+        likeBtn.innerText = "👍 Mi piace";
+        namesSpan.innerText = baseNames;
+      }
+      countSpan.innerText = likeCount;
+    }
+
+    function toggleDislike() {
+      const dislikeBtn = document.getElementById('btn-dislike');
+      const dislikeSpan = document.getElementById('dislike-count');
+
+      if (!hasDisliked) {
+        hasDisliked = true;
+        dislikeCount++;
+        // Se era attivo il like, lo toglie per evitare il doppio voto
+        if (hasLiked) toggleLike();
+      } else {
+        hasDisliked = false;
+        dislikeCount--;
+      }
+      dislikeSpan.innerText = dislikeCount;
+    }
+  </script>
+
 </body>
 </html>
