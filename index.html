@@ -99,26 +99,9 @@
   In questo quadro, la Federal Reserve non rappresenta semplicemente un evento macro, ma un momento di verifica della sostenibilità dell’intero impianto finanziario globale. La vera domanda non riguarda la direzione dei tassi, ma per quanto tempo il sistema economico e finanziario possa assorbire un costo del capitale che resta persistentemente più alto rispetto all’ultimo ciclo senza generare una frattura nei modelli di leva, nelle valutazioni e nelle strutture di investimento che hanno dominato l’era precedente.
       </p>
 
-<!-- Script per il funzionamento dei contatori -->
-  <script>
-    let likes = 0;
-    let dislikes = 0;
-
-    const btnLike = document.getElementById('btn-like');
-    const btnDislike = document.getElementById('btn-dislike');
-    const countLike = document.getElementById('count-like');
-    const countDislike = document.getElementById('count-dislike');
-
-    btnLike.addEventListener('click', () => {
-      likes++;
-      countLike.textContent = likes;
-    });
-
-    btnDislike.addEventListener('click', () => {
-      dislikes++;
-      countDislike.textContent = dislikes;
-    });
-  </script>
+<!-- Pulsanti di interazione con contatore -->
+      <button class="btn-action" id="btn-like">👍 Mi piace (<span id="count-like">0</span>)</button>
+      <button class="btn-action" id="btn-dislike">👎 Non mi piace (<span id="count-dislike">0</span>)</button>
      
       <h4>Commenti</h4>
       <textarea placeholder="Scrivi un commento..."></textarea><br>
@@ -158,5 +141,26 @@
 
   </section>
 
- </body>
+  <!-- Script per il funzionamento dei contatori -->
+  <script>
+    let likes = 0;
+    let dislikes = 0;
+
+    const btnLike = document.getElementById('btn-like');
+    const btnDislike = document.getElementById('btn-dislike');
+    const countLike = document.getElementById('count-like');
+    const countDislike = document.getElementById('count-dislike');
+
+    btnLike.addEventListener('click', () => {
+      likes++;
+      countLike.textContent = likes;
+    });
+
+    btnDislike.addEventListener('click', () => {
+      dislikes++;
+      countDislike.textContent = dislikes;
+    });
+  </script>
+
+</body>
 </html>
