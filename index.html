@@ -99,6 +99,27 @@
   In questo quadro, la Federal Reserve non rappresenta semplicemente un evento macro, ma un momento di verifica della sostenibilità dell’intero impianto finanziario globale. La vera domanda non riguarda la direzione dei tassi, ma per quanto tempo il sistema economico e finanziario possa assorbire un costo del capitale che resta persistentemente più alto rispetto all’ultimo ciclo senza generare una frattura nei modelli di leva, nelle valutazioni e nelle strutture di investimento che hanno dominato l’era precedente.
       </p>
 
+<!-- Script per il funzionamento dei contatori -->
+  <script>
+    let likes = 0;
+    let dislikes = 0;
+
+    const btnLike = document.getElementById('btn-like');
+    const btnDislike = document.getElementById('btn-dislike');
+    const countLike = document.getElementById('count-like');
+    const countDislike = document.getElementById('count-dislike');
+
+    btnLike.addEventListener('click', () => {
+      likes++;
+      countLike.textContent = likes;
+    });
+
+    btnDislike.addEventListener('click', () => {
+      dislikes++;
+      countDislike.textContent = dislikes;
+    });
+  </script>
+     
       <h4>Commenti</h4>
       <textarea placeholder="Scrivi un commento..."></textarea><br>
       <button>Invia</button>
@@ -137,100 +158,5 @@
 
   </section>
 
-<!-- =============================== -->
-  <!-- FINESTRA MODALE (CHI HA MESSO LIKE) -->
-  <!-- =============================== -->
-  <div id="likeModal" class="modal" onclick="closeModalOutside(event)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4>Reazioni al post</h4>
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-      </div>
-      <ul class="like-user-list" id="usersList">
-        <!-- Lista popolata da JavaScript -->
-      </ul>
-    </div>
-  </div>
-
-  <!-- ===================== -->
-  <!-- JAVASCRIPT LOGIC      -->
-  <!-- ===================== -->
-  <script>
-    // Database finto iniziale dei Like (Head of Investment target)
-    let staticLikes = [
-      { name: "Marco Rossi", role: "Head of Investment Banking @ Mediobanca" },
-      { name: "Elena Bianchi", role: "Head of Investments @ Clessidra Private Equity" },
-      { name: "Fabrizio Serri", role: "Managing Director @ Goldman Sachs Milan" }
-    ];
-
-    let userHasLiked = false;
-
-    // Funzione per aggiornare la vista del counter
-    function updateCounter() {
-      let totalLikes = staticLikes.length + (userHasLiked ? 1 : 0);
-      document.getElementById('likeCounter').innerText = totalLikes + " Like";
-    }
-
-    // Al click di "Mi piace"
-    function toggleLike() {
-      const btn = document.getElementById('likeBtn');
-      userHasLiked = !userHasLiked;
-      
-      if (userHasLiked) {
-        btn.classList.add('liked');
-      } else {
-        btn.classList.remove('liked');
-      }
-      updateCounter();
-    }
-
-    // Al click di "Non mi piace" toglie il like se inserito
-    function triggerDislike() {
-      if (userHasLiked) {
-        userHasLiked = false;
-        document.getElementById('likeBtn').classList.remove('liked');
-        updateCounter();
-      }
-    }
-
-    // Apre il pop-up e genera la lista delle persone
-    function openModal() {
-      const modal = document.getElementById('likeModal');
-      const listContainer = document.getElementById('usersList');
-      listContainer.innerHTML = ''; // svuota
-
-      // Se l'utente ha messo like, si mostra in cima alla lista
-      if (userHasLiked) {
-        const li = document.createElement('li');
-        li.innerHTML = '<span class="name">Tu (Andrea)</span><span class="role">Giornalista / Autore Rubrica Economica</span>';
-        listContainer.appendChild(li);
-      }
-
-      // Aggiunge gli altri utenti finanziari stabili
-      staticLikes.forEach(user => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span class="name">${user.name}</span><span class="role">${user.role}</span>`;
-        listContainer.appendChild(li);
-      });
-
-      modal.style.display = 'flex';
-    }
-
-    // Chiude il pop-up
-    function closeModal() {
-      document.getElementById('likeModal').style.display = 'none';
-    }
-
-    // Chiude cliccando fuori dalla finestrella bianca
-    function closeModalOutside(event) {
-      if (event.target.id === 'likeModal') {
-        closeModal();
-      }
-    }
-
-    // Inizializzazione counter alla partenza
-    updateCounter();
-  </script>
-
-</body>
+ </body>
 </html>
