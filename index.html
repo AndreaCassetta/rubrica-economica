@@ -110,7 +110,7 @@
         Nel mondo del credito, infatti, la variabile non è più la direzione degli spread, ma la capacità di rifinanziamento in un contesto in cui il risk-free resta elevato più a lungo del previsto. Nei portafogli leveraged, questo si traduce in una pressione costante sugli interest coverage ratio e in una crescente selettività nelle operazioni di refinancing. Nel private equity, il tema è ancora più strutturale: i modelli costruiti in un’era di liquidità abbondante e tassi prossimi allo zero stanno entrando in collisione con un ambiente in cui la leva non è più una fonte di rendimento, ma un vincolo operativo.
       </p>
       <p>
-        In parallelo, il mercato sta assistendo a un fenomeno sempre più rilevante di convergenza tra private e public valuation, reso evidente anche dal recente debutto di SpaceX sui mercati pubblici. La prima giornata di contrattazione, con una forte rivalutazione rispetto al prezzo di riferimento e una volatilità superiore alle attese, ha evidenziato come il confine tra capitale privato e pubblico sia sempre più sottile. Il private market non è più un’area pre-IPO isolata, ma un segmento che compete direttamente con la formazione dei prezzi nei mercati quotati, accelerando la trasmissione del sentiment e riducendo lo spazio di arbitraggio tradizionale tra late-stage private equity e public equity growth.
+        In parallelo, il mercato sta assistendo a un phenomenon sempre più rilevante di convergenza tra private e public valuation, reso evidente anche dal recente debutto di SpaceX sui mercati pubblici. La prima giornata di contrattazione, con una forte rivalutazione rispetto al prezzo di riferimento e una volatilità superiore alle attese, ha evidenziato come il confine tra capitale privato e pubblico sia sempre più sottile. Il private market non è più un’area pre-IPO isolata, ma un segmento che compete direttamente con la formazione dei prezzi nei mercati quotati, accelerando la trasmissione del sentiment e riducendo lo spazio di arbitraggio tradizionale tra late-stage private equity e public equity growth.
       </p>
       <p>
         Questa dinamica si inserisce in un contesto economico che rimane complessivamente fragile ma non recessivo: crescita debole, manifattura sotto pressione e servizi ancora resilienti. È un equilibrio che non consente né una riaccelerazione significativa degli utili né un’espansione dei multipli, e che quindi riporta il mercato verso una logica più difensiva, centrata sulla qualità dei flussi di cassa piuttosto che sulla crescita nominale.
@@ -164,26 +164,36 @@
 
   </section>
 
-  <!-- Script per il funzionamento dei contatori -->
+  <!-- Script Aggiornato per il funzionamento dei contatori con salvataggio in memoria -->
   <script>
-    let likes = 0;
-    let dislikes = 0;
+    // Recupera i vecchi valori dal localStorage, se non esistono imposta a 0
+    let likes = parseInt(localStorage.getItem('rubrica_likes')) || 0;
+    let dislikes = parseInt(localStorage.getItem('rubrica_dislikes')) || 0;
 
     const btnLike = document.getElementById('btn-like');
     const btnDislike = document.getElementById('btn-dislike');
     const countLike = document.getElementById('count-like');
     const countDislike = document.getElementById('count-dislike');
 
+    // Mostra subito i valori salvati appena la pagina si carica
+    countLike.textContent = likes;
+    countDislike.textContent = dislikes;
+
+    // Gestione click sul Mi Piace
     btnLike.addEventListener('click', () => {
       likes++;
       countLike.textContent = likes;
+      localStorage.setItem('rubrica_likes', likes); // Salva nel browser
     });
 
+    // Gestione click sul Non Mi Piace
     btnDislike.addEventListener('click', () => {
       dislikes++;
       countDislike.textContent = dislikes;
+      localStorage.setItem('rubrica_dislikes', dislikes); // Salva nel browser
     });
   </script>
-
 </body>
 </html>
+
+
